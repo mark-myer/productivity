@@ -1,0 +1,265 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    color: white;
+    margin-bottom: 40px;
+    padding: 20px 0;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+.current-tracker,
+.stats,
+.activities,
+.breakdown {
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+.tracker-controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+#activityInput {
+    flex: 1;
+    padding: 12px 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+#activityInput:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-start {
+    background: #10b981;
+    color: white;
+}
+
+.btn-start:hover {
+    background: #059669;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(16, 185, 129, 0.3);
+}
+
+.btn-stop {
+    background: #ef4444;
+    color: white;
+}
+
+.btn-stop:hover {
+    background: #dc2626;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(239, 68, 68, 0.3);
+}
+
+.btn-clear {
+    background: #6b7280;
+    color: white;
+    padding: 8px 16px;
+    font-size: 0.9rem;
+}
+
+.btn-clear:hover {
+    background: #4b5563;
+}
+
+.timer {
+    background: #f3f4f6;
+    padding: 20px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#currentActivity {
+    font-weight: 600;
+    color: #374151;
+    font-size: 1.1rem;
+}
+
+#timerDisplay {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #667eea;
+    font-family: 'Courier New', monospace;
+}
+
+.total-time {
+    font-size: 1.2rem;
+    color: #374151;
+}
+
+.total-time strong {
+    color: #667eea;
+    font-size: 1.5rem;
+}
+
+.activities-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.activity-list,
+.breakdown-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.activity-item {
+    background: #f9fafb;
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 4px solid #667eea;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.activity-info {
+    flex: 1;
+}
+
+.activity-name {
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 5px;
+}
+
+.activity-time-range {
+    font-size: 0.9rem;
+    color: #6b7280;
+}
+
+.activity-duration {
+    font-weight: 700;
+    color: #667eea;
+    font-size: 1.1rem;
+}
+
+.breakdown-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.breakdown-item:last-child {
+    border-bottom: none;
+}
+
+.breakdown-name {
+    font-weight: 600;
+    color: #374151;
+}
+
+.breakdown-stats {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.breakdown-time {
+    font-weight: 700;
+    color: #667eea;
+    min-width: 80px;
+    text-align: right;
+}
+
+.breakdown-bar-container {
+    width: 200px;
+    height: 8px;
+    background: #e5e7eb;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.breakdown-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+    border-radius: 4px;
+    transition: width 0.3s;
+}
+
+.empty-state {
+    color: #9ca3af;
+    font-style: italic;
+    text-align: center;
+    padding: 20px;
+}
+
+@media (max-width: 600px) {
+    .tracker-controls {
+        flex-direction: column;
+    }
+
+    .timer {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .breakdown-stats {
+        flex-direction: column;
+        gap: 5px;
+        align-items: flex-end;
+    }
+
+    .breakdown-bar-container {
+        width: 150px;
+    }
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Tracker - Productivity Tools</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>⏱️ Time Tracker</h1>
+            <p class="subtitle">Track where your minutes go throughout the day</p>
+        </header>
+
+        <div class="current-tracker">
+            <h2>Current Activity</h2>
+            <div class="tracker-controls">
+                <input type="text" id="activityInput" placeholder="What are you working on?" />
+                <button id="startBtn" class="btn btn-start">Start Timer</button>
+                <button id="stopBtn" class="btn btn-stop" style="display: none;">Stop Timer</button>
+            </div>
+            <div id="currentTimer" class="timer" style="display: none;">
+                <span id="currentActivity"></span>
+                <span id="timerDisplay">00:00:00</span>
+            </div>
+        </div>
+
+        <div class="stats">
+            <h2>Today's Summary</h2>
+            <div id="totalTime" class="total-time">
+                Total tracked: <strong>0h 0m</strong>
+            </div>
+        </div>
+
+        <div class="activities">
+            <div class="activities-header">
+                <h2>Activity Log</h2>
+                <button id="clearBtn" class="btn btn-clear">Clear All</button>
+            </div>
+            <div id="activityList" class="activity-list">
+                <p class="empty-state">No activities tracked yet. Start tracking to see your time breakdown!</p>
+            </div>
+        </div>
+
+        <div class="breakdown">
+            <h2>Time Breakdown by Activity</h2>
+            <div id="breakdownList" class="breakdown-list">
+                <p class="empty-state">No data to display yet.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
